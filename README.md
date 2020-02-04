@@ -21,10 +21,11 @@ class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null)
             return null;
-        if (root.val == p.val || root.val == q.val)
-            return root;
         TreeNode leftSearchResult = lowestCommonAncestor(root.left, p, q);
         TreeNode rightSearchResult = lowestCommonAncestor(root.right, p, q);
+        
+        if (root.val == p.val || root.val == q.val)
+            return root;
         if(leftSearchResult != null && rightSearchResult!= null )
             return root;
         return leftSearchResult != null? leftSearchResult : rightSearchResult;
