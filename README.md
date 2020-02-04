@@ -12,6 +12,16 @@ Note:
 2. p and q are different and both values will exist in the binary tree.
 ```
 
+```
+                3
+              /   \
+             5     1
+            / \   / \
+           6   2 0   8
+              / \
+             7   4
+```
+
 ## Implementation :
 
 ```java
