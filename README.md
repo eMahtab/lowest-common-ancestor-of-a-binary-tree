@@ -57,6 +57,7 @@ class Solution {
 Note that we are given in the question that both nodes p and q will exist in the binary tree.
 
 ### Follow up : What if we are not guaranteed that both nodes p and q will exist in the binary tree?
+We are going to take two boolean properties `firstNodeExist` and `secondNodeExist`, and when we find that first or the second node exist in the binary tree, we will set the appropriate boolean property to `true`. This way we can find out whether both the values exist in the tree or not, and if both the values are not found in the binary tree we return `null` as LCA from the `lowestCommonAncestor` method.
 
 ## Implementation :
 
