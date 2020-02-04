@@ -21,6 +21,10 @@ Note:
               / \
              7   4
 ```
+Fot the above binary tree: 
+
+The LCA of nodes 5 and 1 is 3.
+The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
 
 ## Implementation :
 
