@@ -54,6 +54,54 @@ class Solution {
     }
 }
 ```
+Note that we are given in the question that both nodes p and q will exist in the binary tree.
+
+### Follow up : What if we are not guaranteed that both nodes p and q will exist in the binary tree?
+
+## Implementation :
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public boolean firstNodeExist;
+    public boolean secondNodeExist;
+    
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null)
+            return null;
+        TreeNode lca = lca(root, p, q);
+        return (firstNodeExist && secondNodeExist)? lca : null;
+    }
+    
+    public TreeNode lca(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null)
+            return null;
+       
+        TreeNode leftSearchResult = lca(root.left, p, q);
+        TreeNode rightSearchResult = lca(root.right, p, q);
+        if (root.val == p.val) {
+        	firstNodeExist = true;
+        	return root;
+        } else if(root.val == q.val) {
+        	secondNodeExist = true;
+        	return root;
+        }
+           
+        if(leftSearchResult != null && rightSearchResult!= null )
+            return root;
+        return leftSearchResult != null? leftSearchResult : rightSearchResult;
+    }
+}
+
+```
 
 # References :
 https://www.youtube.com/watch?v=py3R23aAPCA
